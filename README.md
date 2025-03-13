@@ -38,22 +38,18 @@ The system consists of three major components:
 
 ```mermaid
 graph TD;
-  A[Enterprise Payment System] -->|Data Ingestion| B;
-  B[Machine Learning Pipeline] --> C[Blockchain Transactions];
-  C --> D[Interactive Dashboard];
-
-  B -->|Payment Delay Prediction| E[Time Series Models: LSTM, ARIMA, Prophet];
-  B -->|Anomaly Detection| F[Autoencoders, Isolation Forest, One-Class SVM];
-  B -->|Payment Cycle Optimization| G[Reinforcement Learning];
-
-  C -->|Smart Contracts| H[Ethereum Network];
-  C -->|Audit Logs| I[IPFS Storage];
-
-  D -->|Displays Insights| J[Data Visualization (React + D3.js)];
-  D -->|Alerts & Reports| K[Automated Alerts];
-
-  B -->|Real-time Predictions| D;
-  C -->|Transaction Data| D;
+  A[Enterprise Payment System] -->|Data Ingestion| B[Data Ingestion Layer];
+  B --> C[Machine Learning Pipeline];
+  C -->|Payment Delay Prediction| D[LSTM, ARIMA, Prophet];
+  C -->|Anomaly Detection| E[Autoencoders, Isolation Forest, One-Class SVM];
+  C -->|Optimized Payment Cycles| F[Reinforcement Learning];
+  C --> G[Blockchain Transactions];
+  G -->|Smart Contracts| H[Ethereum Network];
+  G -->|Audit Logs| I[IPFS Storage];
+  G --> J[Interactive Dashboard];
+  J -->|Visuals| K[React + D3.js];
+  J -->|APIs| L[FastAPI Backend];
+  J -->|Alerts| M[Automated Alerts];
 ```
 
 ---
