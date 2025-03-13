@@ -34,37 +34,26 @@ Businesses struggle with **payment delays** due to cash flow issues, policy cons
 ---
 
 ## Architecture  
+The system consists of three major components:  
 
-```
-+----------------------------------+
-|     Enterprise Payment System    |
-+----------------------------------+
-                 |
-                 v
-+----------------------------------+
-|       Data Ingestion Layer       |
-+----------------------------------+
-                 |
-                 v
-+----------------------------------+
-|    Machine Learning Pipeline     |
-| - LSTM, ARIMA, Prophet (Time Series)  |
-| - Autoencoders, Isolation Forest (Anomaly Detection)  |
-+----------------------------------+
-                 |
-                 v
-+----------------------------------+
-|      Blockchain Transactions     |
-| - Ethereum Smart Contracts       |
-| - IPFS Storage for Audit Logs    |
-+----------------------------------+
-                 |
-                 v
-+----------------------------------+
-|       Interactive Dashboard      |
-| - React + D3.js (Visuals)        |
-| - FastAPI Backend for API        |
-+----------------------------------+
+```mermaid
+graph TD;
+  A[Enterprise Payment System] -->|Data Ingestion| B;
+  B[Machine Learning Pipeline] --> C[Blockchain Transactions];
+  C --> D[Interactive Dashboard];
+
+  B -->|Payment Delay Prediction| E[Time Series Models: LSTM, ARIMA, Prophet];
+  B -->|Anomaly Detection| F[Autoencoders, Isolation Forest, One-Class SVM];
+  B -->|Payment Cycle Optimization| G[Reinforcement Learning];
+
+  C -->|Smart Contracts| H[Ethereum Network];
+  C -->|Audit Logs| I[IPFS Storage];
+
+  D -->|Displays Insights| J[Data Visualization (React + D3.js)];
+  D -->|Alerts & Reports| K[Automated Alerts];
+
+  B -->|Real-time Predictions| D;
+  C -->|Transaction Data| D;
 ```
 
 ---
